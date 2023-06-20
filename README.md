@@ -1,4 +1,6 @@
 # Person In/Out
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
 This repository is based on original YoloV5 repository, with integrated person In/Out detection algorithm.
 To get directions on how to download door detection model, visit models/README.txt!
 
