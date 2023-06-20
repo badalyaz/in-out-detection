@@ -1,29 +1,37 @@
 # Person In/Out
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-This repository is based on original YoloV5 repository, with integrated person In/Out detection algorithm.
-To get directions on how to download door detection model, visit models/README.txt!
+Person In/Out Detection algorithm based on the original [YOLOv5](https://github.com/ultralytics/YOLOv5).
 
-## 1. GUI Description:
-Our algorithm uses YoloV5 for person and door detection. 
-When the app.py file is activated, a GUI menu appears, and offers to start. After clicking the ‘start’ button, the view from the camera opens and when ‘detect door’ is clicked, the algorithm starts to function. 
+## GUI Description
+The algorithm uses YOLOv5 for person and door detection. 
+
+To run the GUI app, follow the below instructions:
+* Run the script,
+```
+python3 app.py
+```
+* Click the `start` button to open the view from the camera,
+* Click the `detect door` button to run the main algorithm.
   
 
 <p align="center">
   <img src="project_images/buttons.png" style='...'>
 </p>
 
+## Algorithm Description
 
-## 2. Algorithm Description:
+The In/Out algorithm is implemented in a straightforward way. After a door is detected by `Door YOLO`, `Person YOLO` turns on and works until the window is closed.
 
-The In/Out algorithm is implemented in a straightforward way. After a door is detected by door Yolo, Person Yolo turns on and works until the window is closed.
-When a person is located closer than a threshold distance from the door (called a threshold zone arround the door), he is detected by Yolo. After the person disappears from Yolo sight, it takes the person’s bounding box from the last frame where he/she was visible, and Computes IoM (Intersection over minimum) of the bounding box and the door. If the IoM is greater than a threshold - “out”, if it is smaller - “In”. 
+*Note:* For getting the instructions on how to download the Door Detection model, go to the `models/README.md`.
+
+When a person is located closer than a threshold distance from the door (called a threshold zone around the door), he is detected by YOLO. After the person disappears from the YOLO detector's sight, it takes the person’s bounding box from the last frame where the person was visible and computes the IoM (Intersection over Minimum) of the bounding box and the door. If the IoM is greater than a threshold, the output is - "Out", if it is smaller - "In". 
 
 <p align="center">
   <img src="project_images/iom.png" style='...'>
 </p>
 
-## 3. Some examples of In/Out events:
+## In/Out event Examples
 <table style="width:100%">
   <tr>
     <th>Camera</th>
@@ -68,8 +76,8 @@ When a person is located closer than a threshold distance from the door (called 
   </tr>
 </table>
 
-## 4. How to use application:
-Here you can see a guide on how to create an anaconda env., download dependencies and run the application:
+## How to use 
+A quick guide on how to create an anaconda environment, download the dependencies and run the application:
 
 <p align="center">
   <img src="project_images/demo.gif" style='...'>
